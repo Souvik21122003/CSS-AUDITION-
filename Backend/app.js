@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://css-audition-bfrx.vercel.app/",
+    origin: "https://css-audition-bfrx.vercel.app/ ",
     credentials: true,
   })
 );
