@@ -101,27 +101,31 @@ function Info() {
             </div>
 
             {/* Email */}
-                          {!!formData.name && (
-                  <div className="my-6">
-                    <TextField
-                      id="email"
-                      label="Apna college email address bhi add karo, contact kaise karenge?"
-                      variant="filled"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      fullWidth
-                      error={!/^[a-z]{2}\.[a-z]{2}\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
-                      helperText={!/^[a-z]{2}\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== "" ? "Email format is incorrect" : ""}
-                      sx={{
-                        padding: '2px',
-                        borderRadius: '4px',
-                        backgroundColor: formData.email ? 'white' : '', 
-                      }}
-                    />
-                  </div>
-                )}
+                         {!!formData.name && (
+  <div className="my-6">
+    <TextField
+      id="email"
+      label="Apna college email address bhi add karo, contact kaise karenge?"
+      variant="filled"
+      name="email"
+      type="email"
+      value={formData.email}
+      onChange={handleChange}
+      fullWidth
+      error={!/^[a-z]+\.[a-z]+\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
+      helperText={
+        !/^[a-z]+\.[a-z]+\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
+          ? "Email format is incorrect"
+          : ""
+      }
+      sx={{
+        padding: '2px',
+        borderRadius: '4px',
+        backgroundColor: formData.email ? 'white' : '', 
+      }}
+    />
+  </div>
+)}
 
 
             {/* Phone */}
