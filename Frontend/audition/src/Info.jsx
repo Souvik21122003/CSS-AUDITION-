@@ -101,7 +101,7 @@ function Info() {
             </div>
 
             {/* Email */}
-                   {!!formData.name && (
+                  {!!formData.name && (
   <div className="my-6">
     <TextField
       id="email"
@@ -112,10 +112,14 @@ function Info() {
       value={formData.email}
       onChange={handleChange}
       fullWidth
-      error={!/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
-      helperText={
+      error={
+        // Check if the email is not matching the pattern and is not empty
         !/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
-          ? "Email format is incorrect"
+      }
+      helperText={
+        // Provide error message if email format is incorrect
+        !/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
+          ? "Email format is incorrect. Must match the pattern: [letters and digits].[2 digits][letter][5 digits]@btech.nitdgp.ac.in"
           : ""
       }
       sx={{
@@ -126,6 +130,7 @@ function Info() {
     />
   </div>
 )}
+
 
 
 
@@ -167,7 +172,7 @@ function Info() {
               onChange={handleChange}
               fullWidth
               error={!/^\d{2}[a-zA-Z]{2}\d{4}$/.test(formData.rollNumber) && formData.rollNumber !== ""}
-              helperText={!/^\d{2}[a-zA-Z]{2}\d{4}$/.test(formData.rollNumber) && formData.rollNumber !== "" ? "Roll number should be in format 22CS8043 or 22cs8043" : ""}
+              helperText={!/^\d{2}[a-zA-Z]{2}\d{4}$/.test(formData.rollNumber) && formData.rollNumber !== "" ? "Roll number should be in format 22CS8043 or 22cs8043 in this format" : ""}
               sx={{
                 padding: '2px',
                 borderRadius: '4px',
