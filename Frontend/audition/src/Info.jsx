@@ -114,11 +114,11 @@ function Info() {
       fullWidth
       error={
         // Check if the email is not matching the pattern and is not empty
-        !/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
+        !/^[a-z]+[a-z]+[a-z]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
       }
       helperText={
         // Provide error message if email format is incorrect
-        !/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
+        !/^[a-z]+[a-z]+[a-z]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
           ? "Email format is incorrect. Must match the pattern: [letters and digits].[2 digits][letter][5 digits]@btech.nitdgp.ac.in"
           : ""
       }
