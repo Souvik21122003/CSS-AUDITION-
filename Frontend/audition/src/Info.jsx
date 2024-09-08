@@ -101,7 +101,7 @@ function Info() {
             </div>
 
             {/* Email */}
-                         {!!formData.name && (
+                   {!!formData.name && (
   <div className="my-6">
     <TextField
       id="email"
@@ -112,9 +112,9 @@ function Info() {
       value={formData.email}
       onChange={handleChange}
       fullWidth
-      error={!/^[a-z]+\.[a-z]+\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
+      error={!/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
       helperText={
-        !/^[a-z]+\.[a-z]+\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
+        !/^[a-z]+[a-z0-9]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
           ? "Email format is incorrect"
           : ""
       }
@@ -126,6 +126,7 @@ function Info() {
     />
   </div>
 )}
+
 
 
             {/* Phone */}
