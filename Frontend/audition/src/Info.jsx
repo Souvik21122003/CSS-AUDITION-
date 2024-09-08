@@ -112,7 +112,7 @@ function Info() {
                       value={formData.email}
                       onChange={handleChange}
                       fullWidth
-                      error={!/^[a-z]{2}\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
+                      error={!/^[a-z]{2}\.[a-z]{2}\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""}
                       helperText={!/^[a-z]{2}\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== "" ? "Email format is incorrect" : ""}
                       sx={{
                         padding: '2px',
@@ -249,7 +249,7 @@ function Info() {
                 />
               </div>
             )}
-            
+
             {!!formData.performanceType && (
               <div className="my-6">
                 <TextField
