@@ -39,7 +39,7 @@ function Info() {
 
     console.log(formData);
 
-    
+
            setClick(true)
            toast.info("wait till we submit your form")
     
@@ -59,7 +59,7 @@ function Info() {
    
       {!submitted?(<div className='w-full max-w-5xl p-8 bg-slate-400 shadow-2xl rounded-lg my-3'>
 
-        <div className="bg-slate-500 text-center text-4xl font-bold text-black h-16 flex items-center justify-center w-full rounded-md shadow-xl py-2 my-10">
+        <div className="bg-slate-500 text-center text-3xl font-bold text-black h-16 flex items-center justify-center w-full rounded-md shadow-xl py-2 my-10">
           CSS AUDITION FORM
         </div>
 
