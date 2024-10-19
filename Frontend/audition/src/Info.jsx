@@ -25,8 +25,12 @@ function Info() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [content, setContent] = useState(false);
+  const [web, setWeb] = useState(false);
+  const [app, setApp] = useState(false);
+  const [gd, setGD] = useState(false);
   const [click, setClick] = useState(false);
-
+  const [alumni, setAlumni] = useState(false);
   // Handle form changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -182,7 +186,7 @@ function Info() {
 
 
             {/* Domain Type */}
-            {!!formData.rollNumber && (
+            {/* {!!formData.rollNumber && (
               <div className="my-6">
                 <FormControl fullWidth variant="filled">
                   <InputLabel id="performance-type-label">
@@ -192,6 +196,7 @@ function Info() {
                     labelId="performance-type-label"
                     id="performanceType"
                     name="performanceType"
+                    // multiple
                     value={formData.performanceType}
                     onChange={handleChange}
                     label="performanceType"
@@ -207,7 +212,124 @@ function Info() {
                   </Select>
                 </FormControl>
               </div>
-            )}
+            )} */}
+            {/* Domain Type */}
+{/* Domain Type */}
+{!!formData.rollNumber && (
+  <div className="my-6">
+    <FormControl fullWidth variant="filled">
+      <InputLabel id="performance-type-label">
+        DOMAIN  *
+      </InputLabel>
+      <Select
+        labelId="performance-type-label"
+        id="performanceType"
+        name="performanceType"
+        multiple
+        value={formData.performanceType || []}  // Ensure it's an array
+        onChange={handleChange}
+        label="performanceType"
+        sx={{ 
+          backgroundColor: formData.performanceType.length ? 'white' : ''
+        }}
+        renderValue={(selected) => selected.join(', ')}
+      >
+        <MenuItem
+          value="Content Writing"
+          selected={formData.performanceType.includes('Content Writing')}
+          sx={{
+            backgroundColor: formData.performanceType.includes('Content Writing') ? 'gray' : 'inherit',
+            "&.Mui-selected": {
+              backgroundColor: 'gray',  // When selected, apply gray
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: 'lightgray',  // On hover, when selected
+            }
+          }}
+        >
+          Content Writing
+        </MenuItem>
+        <MenuItem
+          value="Graphic Designing"
+          selected={formData.performanceType.includes('Graphic Designing')}
+          sx={{
+            backgroundColor: formData.performanceType.includes('Graphic Designing') ? 'gray' : 'inherit',
+            "&.Mui-selected": {
+              backgroundColor: 'gray',  // When selected
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: 'lightgray',  // On hover, when selected
+            }
+          }}
+        >
+          Graphic Designing/Video Editing
+        </MenuItem>
+        <MenuItem
+          value="Web Developer"
+          selected={formData.performanceType.includes('Web Developer')}
+          sx={{
+            backgroundColor: formData.performanceType.includes('Web Developer') ? 'gray' : 'inherit',
+            "&.Mui-selected": {
+              backgroundColor: 'gray',  // When selected
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: 'lightgray',  // On hover, when selected
+            }
+          }}
+        >
+          Web Developer
+        </MenuItem>
+        <MenuItem
+          value="App Developer"
+          selected={formData.performanceType.includes('App Developer')}
+          sx={{
+            backgroundColor: formData.performanceType.includes('App Developer') ? 'gray' : 'inherit',
+            "&.Mui-selected": {
+              backgroundColor: 'gray',  // When selected
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: 'lightgray',  // On hover, when selected
+            }
+          }}
+        >
+          App Developer
+        </MenuItem>
+        <MenuItem
+          value="Alumni Outreach"
+          selected={formData.performanceType.includes('')}
+          sx={{
+            backgroundColor: formData.performanceType.includes('Alumni Outreach') ? 'gray' : 'inherit',
+            "&.Mui-selected": {
+              backgroundColor: 'gray',  // When selected
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: 'lightgray',  // On hover, when selected
+            }
+          }}
+        >
+            Alumni Outreach
+        </MenuItem>
+        <MenuItem
+          value="Event Management"
+          selected={formData.performanceType.includes('Event Management')}
+          sx={{
+            backgroundColor: formData.performanceType.includes('Event Management') ? 'gray' : 'inherit',
+            "&.Mui-selected": {
+              backgroundColor: 'gray',  // When selected
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: 'lightgray',  // On hover, when selected
+            }
+          }}
+        >
+          Event Management
+        </MenuItem>
+      </Select>
+    </FormControl>
+  </div>
+)}
+
+
 
             {/* GitHub */}
             {!!formData.performanceType &&
@@ -234,7 +356,7 @@ function Info() {
 
             {/* LinkedIn */}
 
-            {!!formData.performanceType && (
+            {!!formData.performanceType.length!=0 && (
               <div className="my-6">
                 <TextField
                   id="linkedin"
