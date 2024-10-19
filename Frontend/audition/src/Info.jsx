@@ -38,6 +38,10 @@ function Info() {
     e.preventDefault();
 
     console.log(formData);
+
+    
+           setClick(true)
+           toast.info("wait till we submit your form")
     
     axios.post("https://css-audition.onrender.com/api/v1/user/submit", formData)
       .then((res) => {
@@ -305,10 +309,6 @@ function Info() {
             {!!formData.linkedin &&!click&& (
               <div className="mt-4">
                 <Button
-                  onClick={() => {
-                    setClick(true)
-                    toast.info("wait till we submit your form")
-                  }}
                   type="submit"
                   variant="contained"
                   color="primary"
