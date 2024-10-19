@@ -25,6 +25,7 @@ function Info() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [click, setClick] = useState(false);
 
   // Handle form changes
   const handleChange = (e) => {
@@ -54,7 +55,7 @@ function Info() {
    
       {!submitted?(<div className='w-full max-w-5xl p-8 bg-slate-400 shadow-2xl rounded-lg my-3'>
 
-        <div className="bg-slate-500 text-center font-bold text-black h-14 flex items-center justify-center w-full rounded-md shadow-xl py-2 my-10">
+        <div className="bg-slate-500 text-center text-4xl font-bold text-black h-16 flex items-center justify-center w-full rounded-md shadow-xl py-2 my-10">
           CSS AUDITION FORM
         </div>
 
@@ -62,30 +63,22 @@ function Info() {
            <img src={logo} alt="Logo" className="h-auto" />
         </div>
 
-        <div className="bg-emerald-200 h-32 rounded-md text-center flex items-center justify-center p-4 my-16">
+        <div className="bg-emerald-200 h-32 rounded-md text-center text-2xl font-extrabold flex items-center justify-center p-4 my-16">
           <p>Ready to become the next sensation? Fill out the form and let's see!</p>
         </div>
 
-        <div className="flex items-center justify-center ">
-          <div className="mx-2">
-            <h2>Priyanshu : <a href="tel:91 7301038000">(+91 7301038000)</a></h2>
-          </div>
-          <div className="mx-2">
-            <h2>Likhita : <a href="tel:91 8617868717">(+91 8617868717)</a></h2>
-          </div>
-        </div>
 
         <form onSubmit={handleSubmit} className='space-y-8'>
           <Box
             sx={{ '& > :not(style)': { my: 5, width: '100%' } }}
             noValidate
             autoComplete="off"
-          >
+            >
             {/* Name */}
             <div className="my-6">
               <TextField
                 id="name"
-                label="Naam to pehle batao bhai, tumhara naam kya hai?"
+                label="NAME  *"
                 variant="filled"
                 name="name"
                 value={formData.name}
@@ -97,15 +90,15 @@ function Info() {
                   backgroundColor: formData.name ? 'white' : '',
                   
                 }}
-              />
+                />
             </div>
 
             {/* Email */}
                   {!!formData.name && (
-  <div className="my-6">
+                    <div className="my-6">
     <TextField
       id="email"
-      label="Apna college email address bhi add karo, contact kaise karenge?"
+      label="EMAIL(COLLEGE EMAIL ID)  *"
       variant="filled"
       name="email"
       type="email"
@@ -119,15 +112,15 @@ function Info() {
       helperText={
         // Provide error message if email format is incorrect
         !/^[a-z]+[a-z]+[a-z]*\.\d{2}[a-z]\d{5}@btech\.nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
-          ? "Email format is incorrect must provide college email address"
-          : ""
+        ? "Email format is incorrect must provide college email address"
+        : ""
       }
       sx={{
         padding: '2px',
         borderRadius: '4px',
         backgroundColor: formData.email ? 'white' : '', 
       }}
-    />
+      />
   </div>
 )}
 
@@ -137,10 +130,10 @@ function Info() {
             {/* Phone */}
 
                     {!!formData.email && (
-          <div className="my-6">
+                      <div className="my-6">
             <TextField
               id="phone"
-              label="Phone number daalna bhoolna mat, warna kaise call karenge?"
+              label="PHONE NUMBER  *"
               variant="filled"
               name="phone"
               type="tel"
@@ -154,17 +147,17 @@ function Info() {
                 borderRadius: '4px',
                 backgroundColor: formData.phone ? 'white' : '',
               }}
-            />
+              />
           </div>
         )}
 
 
             {/* Roll Number */}
                             {!!formData.phone && (
-          <div className="my-6">
+                              <div className="my-6">
             <TextField
               id="rollNumber"
-              label="Roll number bhi share kar do, formality hai!"
+              label="ROLL NUMBER  *"
               variant="filled"
               name="rollNumber"
               type="text"
@@ -178,7 +171,7 @@ function Info() {
                 borderRadius: '4px',
                 backgroundColor: formData.rollNumber ? 'white' : '',
               }}
-            />
+              />
           </div>
         )}
 
@@ -189,7 +182,7 @@ function Info() {
               <div className="my-6">
                 <FormControl fullWidth variant="filled">
                   <InputLabel id="performance-type-label">
-                    Kya banne ka sapna dekh rahe ho? Batao!
+                    DOMAIN  *
                   </InputLabel>
                   <Select
                     labelId="performance-type-label"
@@ -201,13 +194,11 @@ function Info() {
                     sx={{ 
                       backgroundColor: formData.performanceType ? 'white' : ''
                     }}
-                  >
-                    <MenuItem value="Web Developer">Web Developer</MenuItem>
-                    <MenuItem value="">Pehli fursat mein nikal lo</MenuItem>
+                    >
                     <MenuItem value="Content Writing ">Content Writing</MenuItem>
-                    <MenuItem value="Graphic Designing">Graphic Designing</MenuItem>
+                    <MenuItem value="Graphic Designing">Graphic Designing/Video Editing </MenuItem>
+                    <MenuItem value="Web Developer">Web Developer</MenuItem>
                     <MenuItem value="App Developer">App Developer</MenuItem>
-                    <MenuItem value="Video Editor">Video Editor</MenuItem>
                     <MenuItem value="Event Management">Event Management</MenuItem>
                   </Select>
                 </FormControl>
@@ -220,7 +211,7 @@ function Info() {
                 <div className="my-6">
                   <TextField
                     id="github"
-                    label=" Developer banna hai? GitHub hai ya banwa doon?"
+                    label=" GITHUB URL  *"
                     variant="filled"
                     name="github"
                     type="url"
@@ -233,7 +224,7 @@ function Info() {
                       backgroundColor: formData.github ? 'white' : '',
                       
                     }}
-                  />
+                    />
                 </div>
               )}
 
@@ -243,7 +234,7 @@ function Info() {
               <div className="my-6">
                 <TextField
                   id="linkedin"
-                  label="LinkedIn profile bhi share kar do, networking zaroori hai!"
+                  label="LINKEDIN PROFILE URL  *"
                   variant="filled"
                   name="linkedin"
                   type="url"
@@ -256,7 +247,7 @@ function Info() {
                     backgroundColor: formData.linkedin ? 'white' : '',
                     
                   }}
-                />
+                  />
               </div>
             )}
 
@@ -264,7 +255,7 @@ function Info() {
               <div className="my-6">
                 <TextField
                   id="add_link1"
-                  label="additional links"
+                  label="additional links(like your cp profile etc.)"
                   variant="filled"
                   name="add_link1"
                   type="url"
@@ -277,7 +268,7 @@ function Info() {
                     backgroundColor: formData.linkedin ? 'white' : '',
                     
                   }}
-                />
+                  />
               </div>
             )}
             {!!formData.performanceType && (
@@ -297,19 +288,32 @@ function Info() {
                     backgroundColor: formData.linkedin ? 'white' : '',
                     
                   }}
-                />
+                  />
               </div>
             )}
+            <div className="flex flex-col items-center justify-center ">
+              <div className="my-3 text-xl font-bold">Contacts</div>
+              <div className="mx-2 py-1">
+                <h2>Priyanshu : <a href="tel:91 7301038000">(+91 7301038000)</a></h2>
+              </div>
+              <div className="mx-2">
+                <h2>Likhita : <a href="tel:91 8617868717">(+91 8617868717)</a></h2>
+              </div>
+            </div>
 
             {/* Submit Button */}
-            {!!formData.linkedin && (
+            {!!formData.linkedin &&!click&& (
               <div className="mt-4">
                 <Button
+                  onClick={() => {
+                    setClick(true)
+                    toast.info("wait till we submit your form")
+                  }}
                   type="submit"
                   variant="contained"
                   color="primary"
                   fullWidth
-                >
+                  >
                   Submit Audition Form
                 </Button>
               </div>
@@ -320,7 +324,7 @@ function Info() {
 
       </div>):null}
      {!!submitted && (
-  <div className="flex items-center justify-center w-full min-h-screen bg-gradient-to-r from-black to-slate-500">
+       <div className="flex items-center justify-center w-full min-h-screen bg-gradient-to-r from-black to-slate-500">
     <div className="bg-slate-400 text-center text-black p-8 rounded-lg shadow-lg border border-gray-300 max-w-md mx-auto">
       <div className="text-2xl font-bold mb-4">
         Thank You!
