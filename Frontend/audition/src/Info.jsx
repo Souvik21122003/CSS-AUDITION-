@@ -19,7 +19,7 @@ function Info() {
     rollNumber: '',
     github: '',
     linkedin: '',
-    performanceType: '',
+    performanceType: [],
     add_link1: '',
     add_link2:''
   });
@@ -41,13 +41,13 @@ function Info() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    console.log(formData+"hi");
 
 
            setClick(true)
            toast.info("wait till we submit your form")
     
-    axios.post("https://css-audition.onrender.com/api/v1/user/submit", formData)
+    axios.post(" https://css-audition.onrender.com/api/v1/user/submit", formData)
       .then((res) => {
         setSubmitted(true); localStorage.setItem('isRegistered', false)
       })
@@ -227,7 +227,7 @@ function Info() {
         id="performanceType"
         name="performanceType"
         multiple
-        value={formData.performanceType || []}  // Ensure it's an array
+        value={formData.performanceType }  // Ensure it's an array
         onChange={handleChange}
         label="performanceType"
         sx={{ 
@@ -333,8 +333,8 @@ function Info() {
 
 
             {/* GitHub */}
-            {!!formData.performanceType &&
-              (formData.performanceType === "Web Developer"||formData.performanceType==="App Developer") && (
+            {!!formData.performanceType.length 
+             && (
                 <div className="my-6">
                   <TextField
                     id="github"
@@ -378,7 +378,7 @@ function Info() {
               </div>
             )}
 
-            {!!formData.performanceType && (
+            {!!formData.performanceType.length && (
               <div className="my-6">
                 <TextField
                   id="add_link1"
@@ -398,7 +398,7 @@ function Info() {
                   />
               </div>
             )}
-            {!!formData.performanceType && (
+            {!!formData.performanceType.length && (
               <div className="my-6">
                 <TextField
                   id="add_link1"

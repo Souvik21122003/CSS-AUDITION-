@@ -27,8 +27,8 @@ const studentSchema = new mongoose.Schema(
       required: false, // Optional field
     },
     performanceType: {
-      type: String,
-      required: false,
+      type: [],
+      required: true,
     },
     add_link1: {
       type: String,
