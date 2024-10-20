@@ -104,7 +104,6 @@ function Info() {
             {/* Email */}
                   {!!formData.name && (
                     <div className="my-6">
-<<<<<<< HEAD
    <TextField
   id="email"
   label="EMAIL(COLLEGE EMAIL ID)  *"
@@ -131,33 +130,6 @@ function Info() {
   }}
 />
 
-=======
-    <TextField
-      id="email"
-      label="EMAIL(COLLEGE EMAIL ID)  *"
-      variant="filled"
-      name="email"
-      type="email"
-      value={formData.email}
-      onChange={handleChange}
-      fullWidth
-      error={
-        // Check if the email is not matching the pattern and is not empty
-        !/^[a-z]+[a-z]+[a-z]*\.\d{2}[a-z]*\d{4}@nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
-      }
-      helperText={
-        // Provide error message if email format is incorrect
-        !/^[a-z]+[a-z]+[a-z]*\.\d{2}[a-z]*\d{4}@nitdgp\.ac\.in$/.test(formData.email) && formData.email !== ""
-        ? "Email format is incorrect must provide college email address"
-        : ""
-      }
-      sx={{
-        padding: '2px',
-        borderRadius: '4px',
-        backgroundColor: formData.email ? 'white' : '', 
-      }}
-      />
->>>>>>> 377ffc6605d8fb7350b7b7cde5a3d5cca8a226bc
   </div>
 )}
 
