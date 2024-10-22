@@ -45,16 +45,17 @@ function Info() {
 
 
            setClick(true)
-           toast.info("wait till we submit your form")
+    //  toast.info("wait till we submit your form")
+    toast.info("No longer accepting registrations")
     
-    axios.post(" https://css-audition.onrender.com/api/v1/user/submit", formData)
-      .then((res) => {
-        setSubmitted(true); localStorage.setItem('isRegistered', false)
-      })
-      .catch((err) => {
-        toast.error('Form not submitted because this email is already in use');
-        console.log(err);
-      });
+    // axios.post(" https://css-audition.onrender.com/api/v1/user/submit", formData)
+    //   .then((res) => {
+    //     setSubmitted(true); localStorage.setItem('isRegistered', false)
+    //   })
+    //   .catch((err) => {
+    //     toast.error('Form not submitted because this email is already in use');
+    //     console.log(err);
+    //   });
   }
 
   return (
